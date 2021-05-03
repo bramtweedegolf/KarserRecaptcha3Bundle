@@ -20,7 +20,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->tag('form.type', []);
 
     $services->set('karser_recaptcha3.validator', Recaptcha3Validator::class)
-        ->private()
         ->args([new ReferenceConfigurator('karser_recaptcha3.google.recaptcha'), '%karser_recaptcha3.enabled%', new ReferenceConfigurator('karser_recaptcha3.ip_resolver')])
         ->tag('validator.constraint_validator', ['alias' => 'karser_recaptcha3_validator']);
 
